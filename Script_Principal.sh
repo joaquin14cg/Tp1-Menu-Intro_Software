@@ -58,6 +58,23 @@ case $opcion in
              echo "Debe seleccionar la Opcion 1 primero"
           fi
           ;;
+        5) 
+        echo "Ingrese un número de padrón (solo números):"
+        read numeropadron
+
+buscar=$(grep -w "$numeropadron" padronprueba.txt)
+
+until [[ "$numeropadron" =~ ^[0-9]+$ ]] && [[ -n "$buscar" ]]
+    do 
+    echo "Número de padrón no encontrado. Ingrese uno válido (solo números): "
+    read numeropadron
+    buscar=$(grep -w "$numeropadron" padronprueba.txt)
+
+    done
+echo "Datos del padrón:"
+echo "$buscar"
+
+        ;;
 7)echo "Saliendo..."
                 exit 0
           ;;
