@@ -49,18 +49,7 @@ case $opcion in
           fi
           echo "Entorno creado"
           ;;
-        2) while true
-           do 
-                for archivo in entrada/*.txt
-                do 
-                    FECHA_HORA=$(date "+%d/%m/%Y %T")
-                    cat "$archivo" >> $ARCHIVO_FINAL
-                    mv "$archivo" procesado/
-                    echo "$FECHA_HORA - Procesado archivo $(basename "$archivo")" >> $ARCHIVO_LOG
-                done
-           sleep 30    
-           done    
-
+        2)
           if [[ -f $CONSOLIDAR ]]; then
                     echo "Corriendo proceso..."
                     $CONSOLIDAR &
