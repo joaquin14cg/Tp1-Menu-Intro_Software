@@ -54,9 +54,9 @@ case $opcion in
                 for archivo in entrada/*.txt
                 do 
                     FECHA_HORA=$(date "+%d/%m/%Y %T")
-                    cat "$archivo" >> salida/$FILENAME.txt
+                    cat "$archivo" >> $ARCHIVO_FINAL
                     mv "$archivo" procesado/
-                    echo "$FECHA_HORA - Procesado archivo $(basename "$archivo")" >> procesado/procesado.log
+                    echo "$FECHA_HORA - Procesado archivo $(basename "$archivo")" >> $ARCHIVO_LOG
                 done
            sleep 30    
            done    
