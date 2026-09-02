@@ -20,6 +20,51 @@ if [[ $1 = "-d" ]]; then
 fi
 
 ALUMNOS="$HOME/EPNro1/salida/$FILENAME.txt"
+DIRECTORIO_EPNRO1="$HOME/EPNro1"
+CARPETA_ENTRADA="$DIRECTORIO_EPNRO1/entrada"
+CARPETA_SALIDA="$DIRECTORIO_EPNRO1/salida"
+CARPETA_PROCESADO="$DIRECTORIO_EPNRO1/procesado"
+ARCHIVO_FINAL="$CARPETA_SALIDA/$FILENAME.txt"
+ARCHIVO_LOG="$CARPETA_PROCESADO/procesado.log"
+CONSOLIDAR="$DIRECTORIO_EPNRO1/consolidar.sh"
+opcion=0
+until [ $opcion -eq 7 ]; do
+echo "1- Crear Entorno"
+echo "2- Correr Proceso"
+echo "3- Ordenar por numero de padron"
+echo "4- Mostrar las 10 notas mas altas"
+echo "5- Datos de Alumno"
+echo "6- Visualizar log"
+echo "7- Salir"
+read -p "Elija una opcion" opcion
+case $opcion in
+        1)
+          echo "Creando entorno..."
+          mkdir -p $DIRECTORIO_EPNRO1/{entrada,salida,procesado}
+          if [[ -f consolidar.sh ]]; then
+                  cp consolidar.sh $DIRECTORIO_EPNRO1
+                  chmod +x $CONSOLIDAR
+          else
+                  echo "No se encuentra el archivo consolidar.sh"
+          fi
+          echo "Entorno creado"
+          ;;
+        2)
+          if [[ -f $CONSOLIDAR ]]; then
+                    echo "Corriendo proceso..."
+                    $CONSOLIDAR &
+          else
+             echo -n "No se ha encontrado consolidar.sh"
+             echo "Debe seleccionar la Opcion 1 primero"
+          fi
+          ;;
+7)echo "Saliendo..."
+                exit 0
+          ;;
+        *)echo "Opcion invalida, intente nuevamente"
+          ;;
+    esac
+done
 
 #3
 
