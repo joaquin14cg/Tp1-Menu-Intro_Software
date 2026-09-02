@@ -36,7 +36,7 @@ echo "4- Mostrar las 10 notas mas altas"
 echo "5- Datos de Alumno"
 echo "6- Visualizar log"
 echo "7- Salir"
-read -p "Elija una opcion" opcion
+read -p "Elija una opcion: " opcion
 case $opcion in
         1)
           echo "Creando entorno..."

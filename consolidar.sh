@@ -3,7 +3,7 @@
 
 while true
 do 
-    for archivo in entrada/*.txt
+    for archivo in $HOME/EPNro1/entrada/*.txt
     do 
         FECHA_HORA=$(date "+%d/%m/%Y %T")
         cat "$archivo" >> $HOME/EPNro1/salida/$FILENAME.txt
