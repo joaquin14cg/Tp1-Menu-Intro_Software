@@ -87,13 +87,13 @@ case $opcion in
         echo "Ingrese un número de padrón (solo números):"
         read numeropadron
 
-        buscar=$(grep -w "$numeropadron" padronprueba.txt)
+        buscar=$(grep -w "$numeropadron" $ALUMNOS)
 
         until [[ "$numeropadron" =~ ^[0-9]+$ ]] && [[ -n "$buscar" ]]
         do 
         echo "Número de padrón no encontrado. Ingrese uno válido (solo números): "
         read numeropadron
-        buscar=$(grep -w "$numeropadron" padronprueba.txt)
+        buscar=$(grep -w "$numeropadron" $ALUMNOS)
 
         done
         echo "Datos del padrón:"
