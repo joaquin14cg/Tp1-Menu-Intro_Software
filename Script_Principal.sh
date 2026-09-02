@@ -9,6 +9,15 @@
 
 #head muestra los primeros elementos de una lista y con -n le podemos decir cuantos queremos que nos muestre
 
+if [[ -z $FILENAME ]]; then
+    FILENAME="alumnos"
+fi
+
+if [[ $1 = "-d" ]]; then
+        echo "ejecutando limpieza"
+        pkill -f $CONSOLIDAR
+        rm -r -f $DIRECTORIO_EPNRO1
+fi
 
 ALUMNOS="$HOME/EPNro1/salida/$FILENAME.txt"
 
