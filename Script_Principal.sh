@@ -13,12 +13,6 @@ if [[ -z $FILENAME ]]; then
     FILENAME="alumnos"
 fi
 
-if [[ $1 = "-d" ]]; then
-        echo "ejecutando limpieza"
-        pkill -f $CONSOLIDAR
-        rm -r -f $DIRECTORIO_EPNRO1
-fi
-
 ALUMNOS="$HOME/EPNro1/salida/$FILENAME.txt"
 DIRECTORIO_EPNRO1="$HOME/EPNro1"
 CARPETA_ENTRADA="$DIRECTORIO_EPNRO1/entrada"
@@ -27,7 +21,16 @@ CARPETA_PROCESADO="$DIRECTORIO_EPNRO1/procesado"
 ARCHIVO_FINAL="$CARPETA_SALIDA/$FILENAME.txt"
 ARCHIVO_LOG="$CARPETA_PROCESADO/procesado.log"
 CONSOLIDAR="$DIRECTORIO_EPNRO1/consolidar.sh"
+
+if [[ $1 = "-d" ]]; then
+        echo "ejecutando limpieza"
+        pkill -f $CONSOLIDAR
+        rm -r -f $DIRECTORIO_EPNRO1
+fi
+
+
 opcion=0
+
 until [ $opcion -eq 7 ]; do
 echo "1- Crear Entorno"
 echo "2- Correr Proceso"
@@ -88,6 +91,9 @@ case $opcion in
         echo "Datos del padrón:"
         echo "$buscar"
 
+        ;;
+        6)
+        cat $ARCHIVO_LOG
         ;;
         7)echo "Saliendo..."
                 exit 0
