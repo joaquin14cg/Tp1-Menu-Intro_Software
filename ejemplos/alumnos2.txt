@@ -1,4 +1,0 @@
-104243 Francisco Sandoval fsandoval@fi.uba.ar 7
-102334 Kevin Rivero krivero@fi.uba.ar 4
-106767 Alejandro Gonzalez agonzalez@fi.uba.ar 6
-118901 Joaquin Muñoz jmuñoz@fi.uba.ar 3
