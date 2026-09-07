@@ -61,13 +61,13 @@ read -p "Elija una opcion: " opcion
                   echo "Ingrese un número de padrón (solo números):"
                   read numeropadron
 
-                  buscar=$(grep -w "$numeropadron" $ARCHIVO_FINAL)
+                  buscar=$(grep -w "^$numeropadron" $ARCHIVO_FINAL)
 
                   until [[ "$numeropadron" =~ ^[0-9]+$ ]] && [[ -n "$buscar" ]]
                   do 
                           echo "Número de padrón no encontrado. Ingrese uno válido (solo números): "
                           read numeropadron
-                          buscar=$(grep -w "$numeropadron" $ARCHIVO_FINAL)
+                          buscar=$(grep -w "^$numeropadron" $ARCHIVO_FINAL)
 
                   done
                   echo "Datos del padrón:"
